@@ -3,21 +3,28 @@
   "type": "module",
   "devDependencies": {
     "@faker-js/faker": "^8.3.1",
+    "@wdio/allure-reporter": "^8.24.12",
     "@wdio/cli": "^8.26.1",
+    "@wdio/dot-reporter": "^8.24.12",
     "@wdio/local-runner": "^8.26.1",
     "@wdio/mocha-framework": "^8.24.12",
     "@wdio/spec-reporter": "^8.24.12"
   },
   "scripts": {
     "test:all": "npx wdio wdio.conf.js",
+    "test:all:chrome": "npx wdio wdio.chrome.conf.js",
+    "test:all:firefox": "npx wdio wdio.firefox.conf.js",
     "test:all:headless": "npx wdio wdio.conf.js --headless",
+    "test:all:headless:chrome": "npx wdio wdio.chrome.conf.js --headless",
+    "test:all:headless:firefox": "npx wdio wdio.firefox.conf.js --headless",
     "test:signin": "npx wdio wdio.conf.js --spec ./test/specs/signin.spec.js",
     "test:signup": "npx wdio wdio.conf.js --spec ./test/specs/signup.spec.js",
     "test:bank-account": "npx wdio wdio.conf.js --spec ./test/specs/bank-account.spec.js",
     "test:user-settings": "npx wdio wdio.conf.js --spec ./test/specs/user-settings.spec.js",
     "test:new-transaction": "npx wdio wdio.conf.js --spec ./test/specs/new-transaction.spec.js",
     "test:transaction-detail": "npx wdio wdio.conf.js --spec ./test/specs/transaction-detail.spec.js",
-    "report:create": "npx wdio wdio.conf.js --spec ./path/to/your/spec.js --reporters spec,junit --services junit-reporter --suiteAll"
+    "report:create": "npx allure generate reports -o allure-report --clean",
+    "report:open": "npx allure open allure-report"
   },
   "dependencies": {
     "dotenv": "^16.3.1"

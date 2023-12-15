@@ -64,20 +64,13 @@ describe("Updating the user settings", () => {
         error.message
       );
     }
-    try {
-      await UserSettings.checkRedFieldsHighlight();
-    } catch (error) {
-      console.error(
-        "Test marked as passed because of absence of feature:",
-        error.message
-      );
-    }
+    await UserSettings.checkRedFieldsHighlight();
     await UserSettings.submitBtnAccessibility();
   });
   it("with empty required fields", async () => {
     await MainPage.clickMyAccLink();
     await UserSettings.clearUserSettingsForm();
-    // await UserSettings.checkRedFieldsHighlight();
+    await UserSettings.checkRedFieldsHighlight();
     await UserSettings.submitBtnAccessibility();
   });
 

@@ -58,7 +58,7 @@ describe("Creating the new transaction", () => {
     await NewTransactionPage.clickFirstUser();
     await NewTransactionPage.fillForm(invalidAmount, invalidRandomNote);
     await NewTransactionPage.checkInvalidCredentialsError();
-    // await NewTransactionPage.checkRedFieldsHighlight();
+    await NewTransactionPage.checkRedFieldsHighlight();
     await NewTransactionPage.requestBtnAccessibility();
     await NewTransactionPage.payBtnAccessibility();
   });
@@ -67,7 +67,7 @@ describe("Creating the new transaction", () => {
     await NewTransactionPage.clickFirstUser();
     await NewTransactionPage.fillForm("", "");
     await NewTransactionPage.checkBlankFieldsError();
-    // await NewTransactionPage.checkRedFieldsHighlight();
+    await NewTransactionPage.checkRedFieldsHighlight();
     await NewTransactionPage.requestBtnAccessibility();
     await NewTransactionPage.payBtnAccessibility();
   });

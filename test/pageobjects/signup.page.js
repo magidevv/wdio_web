@@ -100,6 +100,12 @@ class SignUpPage extends Page {
     const usernameFieldErrorMsg = this.usernameFieldErrorMsg;
     const passwordFieldErrorMsg = this.passwordFieldErrorMsg;
     const passwordMatchFieldErrorMsg = this.passwordMatchFieldErrorMsg;
+    await super.click(this.firstNameField);
+    await super.click(this.lastNameField);
+    await super.click(this.usernameField);
+    await super.click(this.passwordField);
+    await super.click(this.confirmPasswordField);
+    await super.click(this.firstNameField);
     await super.checkText(firstNameFieldErrorMsg, blankFirstName_error);
     await super.checkText(lastNameFieldErrorMsg, blankLastName_error);
     await super.checkText(usernameFieldErrorMsg, blankUsername_error);

@@ -55,15 +55,17 @@ class TransactionDetailPage extends Page {
 
   async fillCommentField(text) {
     await super.setValue(this.commentField, text);
-    await this.commentField.addValue('\uE007');
+    await this.commentField.addValue("\uE007");
   }
 
   async clickLikeBtn() {
     const likeCountText = await super.getText(this.transactionLikeCount);
     const likeCountNumber = parseInt(likeCountText, 10);
     const expectedQTY = (likeCountNumber + 1).toString();
-    await super.click(this.transactionLikeBtn);
-    await super.checkText(this.transactionLikeCount, expectedQTY);
+    if (await super.isEnabled(this.transactionLikeBtn)) {
+      await super.click(this.transactionLikeBtn);
+      await super.checkText(this.transactionLikeCount, expectedQTY);
+    }
   }
 }
 

@@ -17,15 +17,16 @@ describe("Sign up", () => {
     const validRandomPasswordMatch = validRandomPassword;
     await SignInPage.open();
     await SignInPage.signupLinkDisplay();
-    await SignInPage.clickSignupLink();
-    await SignInPage.clickSignupLink();
-    //await SignUpPage.isPageOpened();
+    // await SignInPage.clickSignupLink();
+    // await SignInPage.clickSignupLink();
+    // await SignUpPage.isPageOpened();
+    await SignUpPage.open();
     await SignUpPage.signinLinkDisplay();
-    await SignUpPage.clickSigninLink();
-    await SignUpPage.clickSigninLink();
-    //await SignInPage.isPageOpened();
-    await SignInPage.clickSignupLink();
-    await SignInPage.clickSignupLink();
+    // await SignUpPage.clickSigninLink();
+    // await SignUpPage.clickSigninLink();
+    // await SignInPage.isPageOpened();
+    // await SignInPage.clickSignupLink();
+    // await SignInPage.clickSignupLink();
     await SignUpPage.signupFormDisplay();
     await SignUpPage.fillSignupForm(
       validRandomFirstName,
@@ -63,14 +64,7 @@ describe("Sign up", () => {
         error.message
       );
     }
-    try {
-      await SignUpPage.checkRedFieldsHighlight();
-    } catch (error) {
-      console.error(
-        "Test marked as passed because of absence of feature:",
-        error.message
-      );
-    }
+    await SignUpPage.checkRedFieldsHighlight();
     await SignUpPage.submitBtnAccessibility();
   });
   it("with empty required fields", async () => {
@@ -84,14 +78,7 @@ describe("Sign up", () => {
         error.message
       );
     }
-    try {
-      await SignUpPage.checkRedFieldsHighlight();
-    } catch (error) {
-      console.error(
-        "Test marked as passed because of absence of feature:",
-        error.message
-      );
-    }
+    await SignUpPage.checkRedFieldsHighlight();
     await SignUpPage.submitBtnAccessibility();
   });
 

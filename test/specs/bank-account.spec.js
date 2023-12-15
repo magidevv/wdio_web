@@ -62,14 +62,14 @@ describe("The bank account", () => {
       invalidRandomAccNumber
     );
     await MainPage.checkInvalidCredentialsError();
-    // await MainPage.checkRedFieldsHighlight();
+    await MainPage.checkRedFieldsHighlight();
     await MainPage.submitBtnAccessibility();
   });
   it("creating with empty required fields", async () => {
     await MainPage.clickNextBtn();
     await MainPage.clickSubmitBtn();
     await MainPage.checkBlankFieldsError();
-    // await MainPage.checkRedFieldsHighlight();
+    await MainPage.checkRedFieldsHighlight();
     await MainPage.submitBtnAccessibility();
   });
   it("deleting", async () => {

@@ -37,14 +37,8 @@ describe("Sign in", () => {
     );
     await SignInPage.clickSubmitBtn();
     await SignInPage.checkInvalidCredentialsError();
-    try {
-      await SignInPage.checkRedFieldsHighlight();
-    } catch (error) {
-      console.error(
-        "Test marked as passed because of absence of feature:",
-        error.message
-      );
-    }
+
+    await SignInPage.checkRedFieldsHighlight();
   });
   it("with invalid password", async () => {
     const randomUsernameIndex = Math.floor(
@@ -57,14 +51,7 @@ describe("Sign in", () => {
     );
     await SignInPage.clickSubmitBtn();
     await SignInPage.checkInvalidCredentialsError();
-    try {
-      await SignInPage.checkRedFieldsHighlight();
-    } catch (error) {
-      console.error(
-        "Test marked as passed because of absence of feature:",
-        error.message
-      );
-    }
+    await SignInPage.checkRedFieldsHighlight();
   });
   it("with empty required fields", async () => {
     await SignInPage.clickSubmitBtn();
@@ -76,14 +63,7 @@ describe("Sign in", () => {
         error.message
       );
     }
-    try {
-      await SignInPage.checkRedFieldsHighlight();
-    } catch (error) {
-      console.error(
-        "Test marked as passed because of absence of feature:",
-        error.message
-      );
-    }
+    await SignInPage.checkRedFieldsHighlight();
   });
 
   afterEach(async () => {

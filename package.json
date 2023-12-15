@@ -9,6 +9,17 @@
     "@wdio/spec-reporter": "^8.24.12"
   },
   "scripts": {
-    "wdio": "wdio run ./wdio.conf.js"
+    "test:all": "npx wdio wdio.conf.js",
+    "test:all:headless": "npx wdio wdio.conf.js --headless",
+    "test:signin": "npx wdio wdio.conf.js --spec ./test/specs/signin.spec.js",
+    "test:signup": "npx wdio wdio.conf.js --spec ./test/specs/signup.spec.js",
+    "test:bank-account": "npx wdio wdio.conf.js --spec ./test/specs/bank-account.spec.js",
+    "test:user-settings": "npx wdio wdio.conf.js --spec ./test/specs/user-settings.spec.js",
+    "test:new-transaction": "npx wdio wdio.conf.js --spec ./test/specs/new-transaction.spec.js",
+    "test:transaction-detail": "npx wdio wdio.conf.js --spec ./test/specs/transaction-detail.spec.js",
+    "report:create": "npx wdio wdio.conf.js --spec ./path/to/your/spec.js --reporters spec,junit --services junit-reporter --suiteAll"
+  },
+  "dependencies": {
+    "dotenv": "^16.3.1"
   }
 }

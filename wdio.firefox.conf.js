@@ -53,14 +53,6 @@ export const config = {
   //
   capabilities: [
     {
-      // capabilities for local Chrome web tests
-      maxInstances: 1,
-      browserName: "chrome",
-      "goog:chromeOptions": {
-        args: ["--headless", "--disable-gpu"],
-      },
-    },
-    {
       // capabilities for local Firefox web tests
       maxInstances: 1,
       browserName: "firefox",
@@ -142,7 +134,6 @@ export const config = {
   // The only one supported by default is 'dot'
   // see also: https://webdriver.io/docs/dot-reporter
   reporters: [
-    "spec",
     "dot",
     [
       "allure",

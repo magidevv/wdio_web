@@ -60,14 +60,6 @@ export const config = {
         args: ["--headless", "--disable-gpu"],
       },
     },
-    {
-      // capabilities for local Firefox web tests
-      maxInstances: 1,
-      browserName: "firefox",
-      "moz:firefoxOptions": {
-        args: ["--headless", "--disable-gpu"],
-      },
-    },
     // You can add capabilities for other browsers here
   ],
 
@@ -142,7 +134,6 @@ export const config = {
   // The only one supported by default is 'dot'
   // see also: https://webdriver.io/docs/dot-reporter
   reporters: [
-    "spec",
     "dot",
     [
       "allure",

@@ -1,41 +1,86 @@
-import { $ } from '@wdio/globals'
-import Page from './page.js';
+import { $, $$ } from "@wdio/globals";
+import Page from "./page.js";
 
-/**
- * sub page containing specific selectors and methods for a specific page
- */
+const invalidCredentials_error = "Username or password is invalid";
+const blankUsername_error = "Username is required";
+const blankPassword_error = "Password is required";
 class SignInPage extends Page {
-    /**
-     * define selectors using getter methods
-     */
-    get inputUsername () {
-        return $('#username');
-    }
+  get usernameField() {
+    return $("#username");
+  }
 
-    get inputPassword () {
-        return $('#password');
-    }
+  get passwordField() {
+    return $("#password");
+  }
 
-    get btnSubmit () {
-        return $('button[type="submit"]');
-    }
+  get submitBtn() {
+    return $("button[data-test='signin-submit']");
+  }
 
-    /**
-     * a method to encapsule automation code to interact with the page
-     * e.g. to login using username and password
-     */
-    async login (username, password) {
-        await this.inputUsername.setValue(username);
-        await this.inputPassword.setValue(password);
-        await this.btnSubmit.click();
-    }
+  get signinErrorMsg() {
+    return $("div[data-test='signin-error']");
+  }
 
-    /**
-     * overwrite specific options to adapt it to page object
-     */
-    open () {
-        return super.open('login');
-    }
+  get redFieldsHighlight() {
+    return $$('fieldset[aria-hidden="true"].MuiOutlinedInput-notchedOutline');
+  }
+
+  get emptyFieldErrorMsg() {
+    return $("#username-helper-text");
+  }
+
+  get signupLink() {
+    return $("a[data-test='signup']");
+  }
+
+  async signinFormDisplay() {
+    await super.isDisplayed(this.usernameField);
+    await super.isDisplayed(this.passwordField);
+    await super.isDisplayed(this.submitBtn);
+  }
+
+  async signupLinkDisplay() {
+    await super.isDisplayed(this.signupLink);
+  }
+
+  async checkInvalidCredentialsError() {
+    const signinErrorMsg = this.signinErrorMsg;
+    await super.checkText(signinErrorMsg, invalidCredentials_error);
+  }
+
+  async checkBlankFieldsError() {
+    const emptyFieldErrorMsg = this.emptyFieldErrorMsg;
+    await super.checkTextArray(emptyFieldErrorMsg, [
+      blankUsername_error,
+      blankPassword_error,
+    ]);
+  }
+
+  async checkRedFieldsHighlight() {
+    const redFieldsHighlight = this.redFieldsHighlight;
+    await super.checkRedHighlightedFields(redFieldsHighlight);
+  }
+
+  async fillSigninForm(username, password) {
+    await super.setValue(this.usernameField, username);
+    await super.setValue(this.passwordField, password);
+  }
+
+  async clickSubmitBtn() {
+    await super.click(this.submitBtn);
+  }
+
+  async clickSignupLink() {
+    await super.click(this.signupLink);
+  }
+
+  async isPageOpened() {
+    await super.doesPageURLContainText("signin");
+  }
+
+  async open() {
+    await super.openURL("/signin");
+  }
 }
 
 export default new SignInPage();

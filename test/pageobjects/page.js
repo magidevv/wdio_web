@@ -61,6 +61,10 @@ export default class Page {
     await expect(await element).toBeDisabled();
   }
 
+  async isEnabled(element) {
+    await expect(await element).toBeEnabled();
+  }
+
   async isExist(element) {
     await expect(await element).not.toBeExisting();
   }
@@ -82,10 +86,10 @@ export default class Page {
   }
 
   async checkRedHighlightedFields(fields) {
-    for (const field of fields) {
-      const colorProperty = await field.getCSSProperty("border-color");
-      const actualColor = colorProperty.parsed.hex;
-      expect(actualColor).toEqual("#f44336");
+    for (let i = 0; i < fields.length; i++) {
+      const field = fields[i];
+      const styleAttribute = await field.getAttribute("style");
+      expect(styleAttribute).toContain("border-color: #f44336");
     }
   }
 }

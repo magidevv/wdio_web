@@ -74,7 +74,7 @@ class Helper {
   }
 
   static generateRandomValidAmount() {
-    return faker.string.numeric(3);
+    return faker.commerce.price();
   }
 
   static generateRandomValidNote() {

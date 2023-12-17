@@ -1,0 +1,44 @@
+name: WebdriverIO Tests
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  run-tests:
+    runs-on: ubuntu-latest
+
+    env:
+      ENV: ${{ secrets.ENV }}
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run WebdriverIO tests
+        run: npx wdio wdio.conf.js
+
+      - name: Generate Allure report
+        run: npx allure generate reports -o allure-report --clean
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          personal_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./allure-report
+
+      - name: Push reports to another branch
+        run: |
+          git checkout -b allure-report
+          git add .
+          git commit -m "Add Allure reports"
+          git push origin allure-report

@@ -67,6 +67,11 @@ To install and set up this project from the GitHub repository, follow these step
    npm install
    ```
 
+8. Install Allure Command-Line Tool using npm:
+   ```shell
+   npm install -g allure-commandline
+   ```
+
 ## Launching Scripts
 
 This project provides several scripts to run WDIO tests:

@@ -64,11 +64,4 @@ jobs:
         uses: peaceiris/actions-gh-pages@v3
         with:
           personal_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./allure-report
-
-      - name: Push reports to another branch
-        run: |
-          git checkout -b allure-report
-          git add .
-          git commit -m "Add Allure reports"
-          git push origin allure-report
+          publish_dir: ./main-repo/allure-report

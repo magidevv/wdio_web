@@ -37,7 +37,7 @@ jobs:
       - name: Run the application
         run: |
           cd tools-repo
-          yarn dev
+          yarn dev &
 
       - name: Change to main repo directory
         run: cd main-repo

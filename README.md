@@ -1,104 +1,86 @@
 # Project Repository Summary
 
-This ReadMe provides detailed information about the project repository, including its summary, requirements, installation steps, launch instructions, and generating reports using Cypress Cloud.
+This repository contains the source code and test suites for a web application testing project using WebdriverIO. Below, you will find information on the repository's structure, system requirements, installation steps, launching scripts, and instructions for generating and viewing reports.
 
 ## Repository Structure
 
-The project repository includes the following directories and files:
+The repository includes the following key directories and files:
 
-- `.github`: Configuration files for GitHub actions.
-- `cypress`:
-  - `downloads`: Cypress downloaded files.
-  - `e2e`: End-to-end test scripts.
-  - `fixtures`
-  - `pages`: Cypress test page objects.
-  - `support`: Custom Cypress commands and utilities.
-- `.env.example`: Environment variables configuration.
-- `.gitignore`: List of files and directories to be ignored by Git.
-- `package.json`: Project-specific Node.js package configuration.
-- `cypress.config.js`: Configuration file for Cypress.
+- `.github`: Workflow for GitHub Actions.
+- `tests`: Directory for organizing test files.
+  - `data`: Directory for project data files.
+  - `helper`: Directory for helper classes for testing.
+  - `pageobjects`: Test page objects.
+  - `specs`: Test spec files.
+- `.env`: Environment variables configuration file.
+- `.gitignore`: File specifying which files and directories to ignore in version control.
+- `package.json`: Project's package file with dependencies and scripts.
+- `wdio.conf.js`: Configuration file for wdio tests on both Chrome and Firefox browsers.
+- `wdio.chrome.conf.js`: Configuration file for wdio tests on Chrome browser.
+- `wdio.firefox.conf.js`: Configuration file for wdio tests on Firefox browser.
 
 ## Requirements
 
-To work with this project, ensure that you meet the following system requirements:
+To run this project, you need to have the following software and system requirements installed:
 
-- Operating System: Windows 10 and above (64-bit only).
-- Node.js: Version 18.x and Node.js 20.x and above.
-- For running Cypress locally, any modern web development-capable machine is suitable.
-- When running Cypress in a CI environment, ensure the following resources:
-  - Minimum of 2 CPUs.
-  - An additional CPU if video recording is enabled.
-  - An additional CPU for each external process you run outside of Cypress, such as frontend and backend
-  - Minimum 4GB of memory; consider using 8GB+ for longer test runs.
+- Node.js 16 or higher
+- Install at least v16.x or higher as this is the oldest active LTS version
+- Only releases that are or will become an LTS release are officially supported
+- Windows 10 or a compatible operating system
 
-## Steps to Install
+## Installation
 
-Follow these steps to install the project from the GitHub repository and connect all necessary dependencies using `npm install`:
+To install and set up this project from the GitHub repository, follow these steps:
 
-1. Clone the project repository from GitHub:
-   ```bash
-   git clone https://github.com/magidevv/cypress_web.git
+1. Clone the repository to your local machine:
+   ```shell
+   git clone https://github.com/magidevv/wdio_web.git
    ```
 
-2. Change your working directory to the project folder:
-   ```bash
+2. Change to the project directory:
+   ```shell
    cd your-repo
    ```
 
 3. Install project dependencies using npm:
-   ```bash
+   ```shell
    npm install
    ```
 
-4. Set Environment Variables:
-   - Create a copy of .env.example as .env.
-   - Fill in the necessary environment variables required for the project.
+## Launching Scripts
 
-## Steps to Launch
+This project provides several scripts to run WDIO tests:
 
-This project provides several scripts to run Cypress tests:
+- To run all tests in the headed browser mode, use:
+  ```shell
+  npm run test:all
+  ```
 
-- **test:all**: Run Cypress tests in headless mode.
-   ```bash
-   npx run test:all
-   ```
+  - To run all tests in the headed with specific, for example, Firerox, browser mode, use:
+  ```shell
+  npm run test:all:firefox
+  ```
 
-- **test:all:headed**: Run Cypress tests in headed (GUI) mode.
-   ```bash
-   npx run test:all:headed
-   ```
+- To run tests in headless mode use:
+  ```shell
+  npm run test:all:headless
+  ```
 
-- **test:login**: Run login tests using Cypress.
-   ```bash
-   npx run test:login
-   ```
+- To run a specific test, for example, `signin.spec.js`, use:
+  ```shell
+  npm run test:signin
+  ```
 
-- **test:registration**: Run registration tests using Cypress.
-   ```bash
-   npx run test:registration
-   ```
+## Creating and Viewing Reports
 
-- **test:profile-settings**: Run profile settings tests using Cypress.
-   ```bash
-   npx run test:profile-settings
-   ```
+To generate and view Allure test reports, use the following scripts:
 
-- **report:create**: Run tests in Cypress and record the results using the provided Cypress key for Cypress Cloud.
-   ```bash
-   npx run report:create
-   ```
+- To create the report, run:
+  ```shell
+  npm run report:create
+  ```
 
-## Steps to Create a Report (Using Cypress Cloud)
-
-To generate reports using Cypress Cloud, follow these steps:
-
-1. Make sure you have a Cypress Cloud account and access to your project.
-
-2. Update your `.env` file with the appropriate Cypress Cloud key.
-
-3. Run the "report:create" script:
-   ```bash
-   npx run report:create
-   ```
-
-The report will be generated in Cypress Cloud, allowing you to view and analyze test results.
+- To open the report in your default web browser, run:
+  ```shell
+  npm run report:open
+  ```

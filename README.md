@@ -32,17 +32,37 @@ To run this project, you need to have the following software and system requirem
 
 To install and set up this project from the GitHub repository, follow these steps:
 
-1. Clone the repository to your local machine:
+1. Clone the repository with tests to your local machine:
    ```shell
    git clone https://github.com/magidevv/wdio_web.git
    ```
 
-2. Change to the project directory:
+2. Clone the project repository to your local machine to another folder:
    ```shell
-   cd your-repo
+   git clone https://github.com/cypress-io/cypress-realworld-app.git
    ```
 
-3. Install project dependencies using npm:
+3. Change to the project directory:
+   ```shell
+   cd your-project-repo
+   ```
+
+4. Install project dependencies using yarn:
+   ```shell
+   yarn install
+   ```
+
+5. Run the application using yarn:
+   ```shell
+   yarn dev
+   ```
+
+6. Change to the tests directory:
+   ```shell
+   cd your-tests-repo
+   ```
+
+7. Install project dependencies using npm:
    ```shell
    npm install
    ```

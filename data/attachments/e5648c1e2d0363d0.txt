@@ -1,0 +1,5 @@
+{
+  "error": "no such element",
+  "message": "no such element: Unable to locate element: {\"method\":\"css selector\",\"selector\":\"div[data-test='transaction-list']\"}\n  (Session info: chrome-headless-shell=120.0.6099.71)",
+  "stacktrace": "#0 0x55d991224d33 <unknown>\n#1 0x55d990ee1f87 <unknown>\n#2 0x55d990f31c0e <unknown>\n#3 0x55d990f31d11 <unknown>\n#4 0x55d990f7d004 <unknown>\n#5 0x55d990f5b36d <unknown>\n#6 0x55d990f7a297 <unknown>\n#7 0x55d990f5b0e3 <unknown>\n#8 0x55d990f23044 <unknown>\n#9 0x55d990f2444e <unknown>\n#10 0x55d9911e9861 <unknown>\n#11 0x55d9911ed785 <unknown>\n#12 0x55d9911d7285 <unknown>\n#13 0x55d9911ee41f <unknown>\n#14 0x55d9911bb20f <unknown>\n#15 0x55d991212028 <unknown>\n#16 0x55d9912121f7 <unknown>\n#17 0x55d991223ed4 <unknown>\n#18 0x7f0b2a494ac3 <unknown>\n"
+}

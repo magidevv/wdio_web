@@ -1,0 +1,4 @@
+{
+  "using": "css selector",
+  "value": "#transaction-create-description-input"
+}

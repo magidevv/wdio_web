@@ -1,0 +1,4 @@
+{
+  "using": "css selector",
+  "value": "#transaction-create-amount-input-helper-text"
+}

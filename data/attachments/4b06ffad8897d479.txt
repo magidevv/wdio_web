@@ -1,3 +1,0 @@
-{
-  "text": "Lynch@org"
-}

@@ -13,16 +13,31 @@ jobs:
       ENV: ${{ secrets.ENV }}
 
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v3
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          path: main
+
+      - name: Clone tools repo
+        run: git clone https://github.com/cypress-io/cypress-realworld-app.git tools-repo
 
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
           node-version: 18
 
-      - name: Install dependencies
-        run: npm install
+      - name: Install application dependencies
+        run: |
+          cd tools-repo
+          yarn install
+
+      - name: Run the application
+        run: yarn dev
+
+      - name: Install testing dependencies
+        run: |
+          cd main
+          npm install
 
       - name: Run WebdriverIO tests
         run: npx wdio wdio.conf.js

@@ -52,6 +52,9 @@ jobs:
           cd main-repo
           npx wdio wdio.conf.js
 
+      - name: Install Allure globally
+        run: npm install -g allure-commandline
+
       - name: Generate Allure report
         run: |
           cd main-repo

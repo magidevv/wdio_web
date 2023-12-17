@@ -27,27 +27,35 @@ jobs:
           node-version: 18
 
       - name: Change to tools repo directory
-        run: |
-          cd ..
-          cd tools-repo
+        run: cd tools-repo
 
       - name: Install application dependencies
-        run: yarn install
+        run: |
+          cd tools-repo
+          yarn install
 
       - name: Run the application
-        run: yarn dev
+        run: |
+          cd tools-repo
+          yarn dev
 
       - name: Change to main repo directory
         run: cd main-repo
 
       - name: Install testing dependencies
-        run: npm install
+        run: |
+          cd main-repo
+          npm install
 
       - name: Run WebdriverIO tests
-        run: npx wdio wdio.conf.js
+        run: |
+          cd main-repo
+          npx wdio wdio.conf.js
 
       - name: Generate Allure report
-        run: npx allure generate reports -o allure-report --clean
+        run: |
+          cd main-repo
+          npx allure generate reports -o allure-report --clean
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3

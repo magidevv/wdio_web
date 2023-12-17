@@ -133,7 +133,7 @@ class NewTransactionPage extends Page {
     await this.clickPayBtn();
     await super.checkText(
       this.completePaymentDetails,
-      `Paid $${amount}.00 for ${note}`
+      `Paid $${amount} for ${note}`
     );
   }
 

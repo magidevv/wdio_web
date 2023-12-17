@@ -16,7 +16,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
         with:
-          path: wdio_web
+          path: main-repo
 
       - name: Clone tools repo
         run: git clone https://github.com/cypress-io/cypress-realworld-app.git tools-repo
@@ -36,7 +36,7 @@ jobs:
         run: yarn dev
 
       - name: Change to main repo directory
-        run: cd wdio_web
+        run: cd main-repo
 
       - name: Install testing dependencies
         run: npm install

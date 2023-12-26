@@ -1,0 +1,4 @@
+{
+  "using": "css selector",
+  "value": "#bankaccount-accountNumber-input-helper-text"
+}

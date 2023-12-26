@@ -1,0 +1,4 @@
+{
+  "using": "css selector",
+  "value": "fieldset[aria-hidden=\"true\"].MuiOutlinedInput-notchedOutline"
+}

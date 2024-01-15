@@ -1,8 +1,0 @@
-[
-  {
-    "element-6066-11e4-a52e-4f735466cecf": "0ad1a0a6-186a-44bb-810f-f3b0a840b99e"
-  },
-  {
-    "element-6066-11e4-a52e-4f735466cecf": "428c5b36-d6d8-4467-b52f-aeb8b49bde15"
-  }
-]
